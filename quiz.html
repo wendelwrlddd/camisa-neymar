@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Neymar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .quiz-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            height: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            width: 0;
+            background-color: #4caf50;
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes festa {
+            0% { background-color: white; }
+            50% { background-color: yellow; }
+            100% { background-color: white; }
+        }
+        .celebration {
+            animation: festa 0.5s infinite alternate;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            opacity: 0.7;
+            position: fixed;
+            animation: fall 2s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        .blob-btn {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #ff7300, #fffb00);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.blob-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 115, 0, 0.5);
+}
+
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <h2 id="question"></h2>
+        <div class="options" id="options"></div>
+        <p id="result"></p>
+        <button id="retry" class="hidden" onclick="restartQuiz()">Refazer Quiz</button>
+        <div class="buttons hidden" id="claimPrizeContainer">
+            <a href="carrinho.html"><button class="blob-btn"> Escolher tamanho da blusa! </button></a>
+        </div>
+    </div>
+    <script>
+        const quiz = [
+            { question: "Em que ano Neymar nasceu?", options: ["1990", "1992", "1994", "1996"], answer: "1992" },
+            { question: "Qual clube revelou Neymar?", options: ["São Paulo", "Flamengo", "Santos", "Palmeiras"], answer: "Santos" },
+            { question: "Qual o primeiro clube europeu de Neymar?", options: ["Real Madrid", "Barcelona", "PSG", "Chelsea"], answer: "Barcelona" },
+            { question: "Em que ano Neymar venceu a Libertadores?", options: ["2009", "2011", "2013", "2015"], answer: "2011" },
+            { question: "Quantos gols Neymar marcou na Copa do Mundo de 2014?", options: ["3", "4", "5", "6"], answer: "4" },
+            { question: "Qual a camisa Neymar usou no PSG?", options: ["7", "9", "10", "11"], answer: "10" }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (currentQuestion >= quiz.length) {
+                document.querySelector(".progress").style.width = "100%";
+                if (score === quiz.length) {
+                    document.body.classList.add("celebration");
+                    document.getElementById("question").innerText = "Parabéns! Você acertou todas as perguntas!";
+                    document.getElementById("claimPrizeContainer").classList.remove("hidden");
+                    launchConfetti();
+                } else {
+                    document.getElementById("question").innerText = `Quiz concluído! Você acertou ${score} de ${quiz.length}.`;
+                    document.getElementById("retry").classList.remove("hidden");
+                }
+                document.getElementById("options").innerHTML = "";
+                return;
+            }
+            document.getElementById("question").innerText = quiz[currentQuestion].question;
+            let optionsHtml = "";
+            quiz[currentQuestion].options.forEach(option => {
+                optionsHtml += `<button onclick="checkAnswer('${option}')">${option}</button>`;
+            });
+            document.getElementById("options").innerHTML = optionsHtml;
+        }
+
+        function checkAnswer(selected) {
+            if (selected === quiz[currentQuestion].answer) {
+                score++;
+            }
+            currentQuestion++;
+            document.querySelector(".progress").style.width = `${(currentQuestion / quiz.length) * 100}%`;
+            loadQuestion();
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.body.classList.remove("celebration");
+            document.getElementById("retry").classList.add("hidden");
+            document.getElementById("claimPrizeContainer").classList.add("hidden");
+            document.querySelector(".progress").style.width = "0%";
+            loadQuestion();
+        }
+
+        
+
+        loadQuestion();
+    </script>
+</body>
+</html>

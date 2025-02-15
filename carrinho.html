@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisa Santos 2012 Retro - Loja Oficial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .produto {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .galeria {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .navegacao {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .btn-navegacao {
+            background: rgba(255,255,255,0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            pointer-events: all;
+        }
+
+        .btn-navegacao:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .btn-navegacao::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #333;
+            border-width: 2px 2px 0 0;
+        }
+
+        .anterior::before {
+            transform: rotate(-135deg);
+            margin-left: 4px;
+        }
+
+        .proximo::before {
+            transform: rotate(45deg);
+            margin-right: 4px;
+        }
+
+        .galeria img {
+            width: 100%;
+            border-radius: 8px;
+            transition: opacity 0.5s;
+        }
+
+        .detalhes {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tamanho select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #333;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .endereco {
+            margin-top: 20px;
+        }
+
+        .endereco input, .endereco select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .botao-comprar {
+            background-color: rgb(147, 241, 7);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .botao-comprar:hover {
+            background-color: greenyellow;
+        }
+
+        .especificacoes {
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        .especificacoes ul {
+            list-style: none;
+            line-height: 1.8;
+        }
+
+        .especificacoes li::before {
+            content: "✓";
+            color: #00aa00;
+            margin-right: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #666;
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+        footer{ 
+            height: 40px;
+            width: 100%;
+            color: #eee;
+            background-color: black;
+            font-size: 13px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Parabens escolha o tamanho e coloque seu endereço.</h1>
+        
+        <div class="produto">
+            <div class="galeria">
+                <img src="img/D_NQ_NP_723170-MLB81742375222_012025-O.webp" alt="Camisa Santos 2012" id="imagemPrincipal">
+                <div class="navegacao">
+                    <button class="btn-navegacao anterior" onclick="mudarImagem(-1)"></button>
+                    <button class="btn-navegacao proximo" onclick="mudarImagem(1)"></button>
+                </div>
+            </div>
+            
+            <div class="detalhes">
+                <div class="tamanho">
+                    <h2>Selecione o tamanho:</h2>
+                    <select name="tamanho" id="tamanho">
+                        <option value="P">Pequeno (P)</option>
+                        <option value="M">Médio (M)</option>
+                        <option value="G">Grande (G)</option>
+                        <option value="GG">Extra Grande (GG)</option>
+                    </select>
+                </div>
+
+                <div class="endereco">
+                    <h2>Informações de Entrega:</h2>
+                    <input type="text" placeholder="Rua/Avenida" required>
+                    <input type="text" placeholder="Cidade" required>
+                    <select name="estado" id="estado">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+
+                <a href="https://go.perfectpay.com.br/PPU38CPG4MF"><button class="botao-comprar" onclick="finalizarCompra()">Finalizar Compra</button></a>
+            </div>
+
+            <div class="especificacoes">
+                <h2>Especificações Técnicas:</h2>
+                <ul>
+                    <li>Prazo de entrega: 9 dias.</li>
+                    <li>como vai funcioanr o frete?: apos o pagamente sua camisa ja é embalado e mandado para logistica!</li>
+                    <li>Prezamos muito pela sua entrega com qualidade, temos uma equipe mais que competente!</li>
+                    <li>Patrocínios originais da época</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer> 
+        FutFanatics – A paixão pelo futebol em cada camisa!
+    </footer>
+
+    <script>
+        const imagens = [
+            'img/D_NQ_NP_723170-MLB81742375222_012025-O.webp',
+            'img/D_NQ_NP_751772-MLB81742249430_012025-O.webp',
+            'img/D_NQ_NP_780355-MLB81742375228_012025-O.webp',
+            'img/D_NQ_NP_837219-MLB81742249434_012025-O.webp'
+        ];
+
+        let imagemAtual = 0;
+
+        function mudarImagem(direcao) {
+            imagemAtual += direcao;
+            
+            if(imagemAtual >= imagens.length) {
+                imagemAtual = 0;
+            } else if(imagemAtual < 0) {
+                imagemAtual = imagens.length - 1;
+            }
+            
+            document.getElementById('imagemPrincipal').src = imagens[imagemAtual];
+        }
+
+       
+    </script>
+</body>
+</html>

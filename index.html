@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="bt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script
+  src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+  type="module"
+></script>
+    <title>Futnatis</title>
+</head>
+<body>
+    <header>
+        <p class="animate__animated animate__fadeInDown">OFERTA LIMITADA! apenas nesse fim de semana!</p>
+    </header>
+    <div class="pai">
+       <h3 class="titlu animate__animated animate__backInLeft">ACERTE O QUIZ E PAGUE SO OFRETE</h3>
+       <p class="titlu2 animate__animated animate__backInRight animate__delay-1s">Por conta da alta demanda, algumas camisas chegaram com **pequenos defeitos de fábrica**, como costura desalinhada ou estampa com leve imperfeição.  
+        Como não podemos vendê-las, decidimos fazer algo **especial para os fãs de Neymar**!  
+        Responda 5 perguntas sobre o craque, escolha o tamanho e pague **SOMENTE o valor do frete!**  
+         **Edição limitada – estoque reduzido!**</p>
+    </div>
+    <div class="conteiner animate__animated animate__backInLeft">
+        <div id="app">
+            <div class="image-container titlu animate__animated animate__backInLeft">
+                <img :src="images[currentIndex]" alt="Camisa Neymar" class="image">
+            </div>
+        </div>
+        <div class="p4 animate__animated animate__backInRight">
+            <div class="pd"> <p>seu pedido é levado direto para vc <br> sem paradinhas ! <br> tudo isso para sua otima experincia <br> como nosso cliente  <button> <a href="quiz.html">faça o quiz </a></button></p></div>
+            <dotlottie-player
+            src="https://lottie.host/5d469e31-cbfc-4cf3-a8f4-8fdb4f756c22/UoDPW3q9rx.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay
+          ></dotlottie-player>
+        </div>
+    </div>
+    
+
+
+    <script src="index.js"></script>
+</body>
+</html>

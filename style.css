@@ -1,0 +1,225 @@
+/* Reset básico */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; /* Evita rolagem horizontal */
+  overflow-y: auto; /* Mantém rolagem vertical */
+  scrollbar-width: none; /* Oculta barra de rolagem no Firefox */
+}
+
+/* Oculta a barra de rolagem no Chrome, Edge, Safari e Opera GX */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+  background: transparent;
+}
+
+/* Fontes personalizadas */
+@font-face {
+  font-family: 'haha';
+  src: url('RubikMonoOneRegular-6pqq.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'titu';
+  src: url('ostrovsky-bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "haha";
+}
+
+/* Header */
+header {
+  background-color: #3DC9D9;
+  height: 30px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+/* Bloco principal */
+.pai {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+/* Títulos */
+.titlu {
+  font-family: 'titu';
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.titlu2 {
+  font-size: 12px;
+  padding: 0 20px;
+}
+
+/* Container principal */
+.conteiner {
+  display: flex;
+  justify-content: center; /* Centraliza os itens */
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Cartões de produto */
+.p1, .p2, .p3, #app {
+  flex: 1; /* Permite crescimento uniforme */
+  max-width: 320px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+/* Estilos do carrossel de imagens */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.image {
+    width: 320px;
+    height: 230px;
+    object-fit: cover; /* Faz a imagem preencher a div sem distorcer */
+    border-radius: 20px;
+}
+
+/* Botão de troca de imagem */
+button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #3DC9D9;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #2a97a0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .conteiner {
+    flex-direction: column;
+  }
+
+  .p1, .p2, .p3, #app {
+    max-width: 90%;
+  }
+}
+
+.p2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  font-size: 13px;
+
+}
+.p3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  font-size: 13px;
+  padding-bottom: 50px;
+}
+.p4{
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 600px;
+  height: 230px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.pd{
+  padding: 30px;
+}
+.fa-truck-fast {
+  color: #41BDD9; /* Altere para a cor desejada */
+  font-size: 15px; /* Ajusta o tamanho */
+}
+.fa-solid {
+  color: #41BDD9
+}
+.p77{
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .p77{
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+
+
+
+    @media screen and (max-width: 768px) {
+      .pai {
+        margin: 10px;
+        padding: 10px;
+      }
+      .p1, .p2, .p3  {
+        height: 210px;
+      }
+      .image {
+        width: 100%;
+        height: 100%;
+      }
+      .p4 {
+        width: 100%;
+        height: 240px;
+      }
+      .image{
+        
+        
+      }
+      header {
+        height: 30px;
+        font-size: 9px;
+      }
+      #app{
+        width: 100%;
+        height: 150px;
+      }
+      .image-container{
+        padding-bottom: 0px;
+      }
+    }
